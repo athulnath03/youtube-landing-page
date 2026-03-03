@@ -1,0 +1,405 @@
+/* =====================================================
+   1. HEADER LAYOUT
+===================================================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+    z-index: 100;
+}
+
+/* Sections */
+.left-section,
+.middle-section,
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+.middle-section {
+    flex: 1;
+    margin: 0 12px 0 60px;
+    max-width: 650px;
+}
+
+.right-section {
+    min-width: 225px;
+    justify-content: space-between;
+    margin-right: 24px;
+    flex-shrink: 0;
+}
+
+/* =====================================================
+   2. BASE ICONS & SMALL HELPERS
+===================================================== */
+
+.hamburger-menu,
+.search-icon,
+.voice-search-icon,
+.create-icon,
+.notifications-icon,
+.youtube-apps-icon,
+.upload-icon,
+.home,
+.subscriptions,
+.library,
+.explore,
+.originals,
+.youtube-music,
+.shorts,
+.You {
+    transition: filter 0.12s ease, opacity 0.12s ease;
+    filter: none;
+    cursor: pointer;
+}
+
+.hamburger-menu { height: 24px; margin: 0 24px; }
+.youtube-logo { height: 20px; cursor: pointer; }
+.search-icon, .voice-search-icon { height: 24px; }
+.create-icon { height: 24px; }
+.notifications-icon { height: 28px; }
+
+.in {
+    font-size: 8px;
+    margin-top: -15px;
+}
+
+/* =====================================================
+   3. SEARCH COMPONENT
+===================================================== */
+
+.search-box {
+    flex: 1;
+    height: 36px;
+    width: 0;
+    padding: 1px 2px 1px 12px;
+
+    font-size: 16px;
+    color: var(--text);
+    background-color: transparent;
+
+    border: 1px solid var(--border);
+    border-radius: 20px 0 0 20px;
+    box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);
+    margin-right: -1px;
+
+    outline: none;
+}
+
+.search-box::placeholder {
+    font-family: roboto, arial;
+    font-size: 16px;
+}
+
+.search-button,
+.voice-search-button {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.search-button {
+    width: 66px;
+    background-color: var(--search-bg);
+    border: 1px solid var(--border);
+    border-radius: 0 20px 20px 0;
+    margin-right: 12px;
+}
+
+.voice-search-button {
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--search-bg);
+}
+
+.search-button:hover,
+.voice-search-button:hover {
+    background-color: var(--search-hover);
+}
+
+/* =====================================================
+   4. CREATE COMPONENT
+===================================================== */
+
+.create-button-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.create-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+
+    border-radius: 20px;
+    background: #0000000d;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.create-button:hover {
+    background-color: var(--search-hover);
+    border-color: var(--border);
+}
+
+.create-txt {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Create Dropdown */
+.create-button-tooltip {
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+
+    min-width: 160px;
+    padding: 10px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s, transform 0.12s;
+}
+
+.create-button.open .create-button-tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    padding: 6px 4px;
+}
+
+.create-menu-opname {
+    margin-left: 8px;
+    font-size: 15px;
+    color: var(--text);
+}
+
+.create-button-tooltip .icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* =====================================================
+   5. NOTIFICATIONS
+===================================================== */
+
+.notifications-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notifications-count {
+    position: absolute;
+    top: -2px;
+    right: -12px;
+
+    background-color: rgb(189, 0, 0);
+    color: white;
+    border: 2px solid var(--header-bg);
+    border-radius: 20px;
+
+    font-size: 12px;
+    padding: 2px 5px;
+}
+
+.notifications-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+
+    min-width: 280px;
+    padding: 10px;
+    border-radius: 10px;
+
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity 0.15s, transform 0.12s;
+    z-index: 300;
+}
+
+.notifications-icon-container.open .notifications-dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* =====================================================
+   6. USER PROFILE
+===================================================== */
+
+.current-user-picture {
+    height: 35px;
+    border-radius: 50%;
+    margin-left: 14px;
+    cursor: pointer;
+    display: block;
+    object-fit: cover;
+}
+
+.user-mini-profile {
+    height: 50px;
+    border-radius: 50%;
+    display: block;
+    object-fit: cover;
+}
+
+.current-user-profile {
+    position: relative;
+    display: flex;
+}
+
+.current-user-profile .user-profile {
+    position: absolute;
+    right: 0;
+    top: 60px;
+
+    min-width: 250px;
+    min-height: 500px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    padding: 10px;
+    border-radius: 10px;
+
+    background-color: var(--menu-bg);
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity 0.12s, transform 0.12s;
+}
+
+.current-user-profile.open .user-profile {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Profile Text */
+.p-name { font-size: 12px; font-weight: 700; color: var(--text); }
+.p-un { font-size: 10px; color: var(--muted); }
+.p-txt { font-size: 11px; color: var(--accent); }
+
+/* =====================================================
+   7. SHARED TOOLTIP
+===================================================== */
+
+.tooltip {
+    position: absolute;
+    bottom: -40px;
+
+    padding: 6px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+
+    background-color: var(--menu-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+    opacity: 0;
+    transform: translateY(6px);
+    pointer-events: none;
+    transition: opacity 0.15s, transform 0.12s;
+}
+
+.search-button:hover .tooltip,
+.voice-search-button:hover .tooltip,
+.upload-button:hover .tooltip,
+.youtube-apps-button:hover .tooltip,
+.notifications-icon-container:hover .tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =====================================================
+   8. DARK THEME (ONLY ONCE — ALWAYS LAST)
+===================================================== */
+
+[data-theme="dark"] 
+.hamburger-menu,
+[data-theme="dark"] 
+.search-icon,
+[data-theme="dark"] 
+.voice-search-icon,
+[data-theme="dark"] 
+.create-icon,
+[data-theme="dark"] 
+.notifications-icon,
+[data-theme="dark"] 
+.youtube-apps-icon,
+[data-theme="dark"] 
+.upload-icon,
+[data-theme="dark"] 
+.home,
+[data-theme="dark"] 
+.shorts,
+[data-theme="dark"] 
+.You,
+[data-theme="dark"] 
+.subscriptions,
+[data-theme="dark"] 
+.library,
+[data-theme="dark"] 
+.explore,
+[data-theme="dark"] 
+.originals,
+[data-theme="dark"] 
+.youtube-music,
+[data-theme="dark"] 
+.create-button-tooltip .icon {
+    filter: invert(100%) brightness(140%) contrast(95%);
+}
+
+/* Prevent inversion on profile images */
+[data-theme="dark"] .current-user-picture,
+[data-theme="dark"] .user-mini-profile {
+    filter: none;
+}

@@ -1,0 +1,118 @@
+/* ================================
+   1. Base Layout
+================================ */
+
+.navigation-bar {
+  height: 68px;
+  background-color: var(--nav-bg);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.links-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+/* ================================
+   2. Navigation Links
+================================ */
+
+.navigation-bar a {
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.navigation-bar a:hover {
+  background-color: var(--accent);
+}
+
+
+/* ================================
+   3. Icons
+================================ */
+
+.navigation-bar svg {
+  fill: var(--text);
+}
+
+
+/* ================================
+   4. Sidebar Controls
+================================ */
+
+#sidebar-active {
+  display: none;
+}
+
+.open-sidebar-button,
+.close-sidebar-button {
+  display: none;
+}
+
+
+/* ================================
+   5. Responsive Styles
+================================ */
+
+@media (max-width: 580px) {
+
+  /* Sidebar Layout */
+  .links-container {
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 10;
+    width: 200px;
+    background-color: #0f1016;
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+    transition: left 0.75s ease-out;
+  }
+
+  /* Sidebar Links */
+  .navigation-bar a {
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: flex-start;
+  }
+
+  /* Toggle Buttons */
+  .open-sidebar-button,
+  .close-sidebar-button {
+    display: block;
+    padding: 20px;
+  }
+
+  /* Sidebar Active State */
+  #sidebar-active:checked ~ .links-container {
+    left: 0;
+  }
+
+  /* Overlay */
+  #overlay {
+    transition: background-color 0.75s ease;
+  }
+
+  #sidebar-active:checked ~ #overlay {
+    background-color: rgba(0, 0, 0, 0.15);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9;
+  }
+}

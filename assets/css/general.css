@@ -1,0 +1,168 @@
+/* =========================================
+   1. Theme Variables
+========================================= */
+
+:root {
+  /* Light Theme (Default) */
+  --bg: #f9f9f9;
+  --text: #0f0f0f;
+  --muted: #606060;
+
+  --header-bg: #ffffff;
+  --surface: #ffffff;
+  --border: #e6e6e6;
+  --hover: #f2f2f2;
+
+  --search-bg: #f5f5f5;
+  --search-hover: #ececec;
+
+  --chip-bg: #000000;
+  --chip-text: #ffffff;
+
+  --menu-bg: #f2f2f2;
+  --accent: #ff0000;
+  --nav-bg: #0f1016;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --bg: #0f0f10;
+  --text: #e6e6e6;
+  --muted: #b6b6b6;
+
+  --header-bg: #0f0f10;
+  --surface: #141414;
+  --border: rgba(255,255,255,0.06);
+  --hover: rgba(255,255,255,0.04);
+
+  --search-bg: rgba(255,255,255,0.03);
+  --search-hover: rgba(255,255,255,0.06);
+
+  --chip-bg: rgba(255,255,255,0.08);
+  --chip-text: #ffffff;
+
+  --menu-bg: #202124;
+  --accent: #ff0000;
+  --nav-bg: #0f0f10;
+}
+
+
+/* =========================================
+   2. Base / Reset
+========================================= */
+
+body {
+  margin: 0;
+  padding-top: 78px;
+  padding-left: 92px;
+  padding-right: 24px;
+
+  background-color: var(--bg);
+  color: var(--text);
+
+  font-family: roboto, arial;
+}
+
+p {
+  margin: 0;
+  font-family: roboto, arial;
+}
+
+
+/* =========================================
+   3. Layout (Page Structure)
+========================================= */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 8px;
+  row-gap: 35px;
+}
+
+
+/* =========================================
+   4. Video Card Component
+========================================= */
+
+.video-preview {
+  padding: 4px;
+  cursor: pointer;
+}
+
+.thumbnail-row {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.thumbnail {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.video-time {
+  position: absolute;
+  bottom: 12px;
+  right: 5px;
+
+  padding: 4px;
+  font-size: 12px;
+  font-weight: 500;
+
+  background-color: #000000c2;
+  color: var(--chip-text);
+  border-radius: 2px;
+}
+
+
+/* --- Video Info Section --- */
+
+.video-info-grid {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  column-gap: 0;
+}
+
+.profile-picture {
+  width: 36px;
+  border-radius: 50px;
+}
+
+.video-title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.video-author,
+.video-stats {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.video-stats {
+  margin-top: 4px;
+}
+
+
+/* =========================================
+   5. Responsive Grid
+========================================= */
+
+@media (max-width: 1200px) {
+  .video-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 950px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .video-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
