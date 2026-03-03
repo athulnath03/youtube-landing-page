@@ -60,28 +60,20 @@ Open the folder.
 Double-click index.html
 or use a Live Server extension in VS Code.
 
-🌐 Deployment
+## 🌐 Deployment
 
 Hosted using GitHub Pages
 Live URL:
 https://athulnath03.github.io/youtube-landing-page/
 
-👤 Author
+## 👤 Author
 
 Athul Nath M
 
 GitHub: https://github.com/athulnath03
 
-⭐ Support
+## ⭐ Support
 
 If you like this project, consider giving it a ⭐ on GitHub!
 
 
----
-
-After pasting:
-
-```bash
-git add README.md
-git commit -m "Added professional README"
-git push origin main
