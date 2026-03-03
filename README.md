@@ -25,14 +25,20 @@ https://athulnath03.github.io/youtube-landing-page/
 
 ## Project Structure
 
-
-├── index.html # Main entry point (GitHub Pages deployment)
-├── assets/ # Images, thumbnails, profile pictures
+```
+youtube-landing-page/
+│
+├── index.html              # Main entry point (GitHub Pages deployment)
+│
+├── assets/                 # Images, thumbnails, profile pictures
+│
 ├── styles/
- ├── general.css # Global variables & theme configuration
- ├── header.css # Header and search bar styling
- └── sidebar.css # Sidebar layout and toggle behavior
-
+│   ├── general.css         # Global variables & theme configuration
+│   ├── header.css          # Header and search bar styling
+│   └── sidebar.css         # Sidebar layout and toggle behavior
+│
+└── script.js               # Dark mode toggle logic
+```
 ---
 
 ## Tech Stack
