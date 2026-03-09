@@ -8,7 +8,7 @@
   bottom: 0;
   left: 0;
 
-  width: 72px;
+  width: 80px;
   padding-top: 5px;
 
   display: flex;
@@ -22,7 +22,6 @@
   flex-shrink: 0;
   max-height: none;
 }
-
 
 /* =========================================
    2. Sidebar Link Item
@@ -44,7 +43,6 @@
   background-color: var(--hover);
 }
 
-
 /* =========================================
    3. Sidebar Link Content
 ========================================= */
@@ -60,7 +58,6 @@
   font-size: 10px;
   color: var(--muted);
 }
-
 
 /* =========================================
    4. Theme Toggle Button
@@ -93,7 +90,6 @@
   display: block;
 }
 
-
 /* =========================================
    5. Theme Toggle State (Dark Mode)
 ========================================= */
@@ -110,4 +106,60 @@
 
 [data-theme="dark"] .theme-toggle .icon-moon {
   display: block;
+}
+
+/* Fullscreen sidebar popover */
+nav[popover] {
+  position: fixed;
+  left: 0;
+  inset: 0;
+  margin-top: 55px;
+  width: 15vw;
+  height: 100vh;
+  background: var(--surface);
+  border-color: var(--border);
+  color: white;
+  border: none;
+  padding: 2rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  /* Start off-screen to the left */
+  transform: translateX(-60vw);
+  transition: transform 0.3s ease;
+}
+
+/* When popover is open */
+nav:popover-open {
+  left: 0;
+  transform: translateX(-40vw);
+  /* width: 30vw; */
+}
+
+/* Close button */
+.close-btn {
+  align-self: flex-end;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }

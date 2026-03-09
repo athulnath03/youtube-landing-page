@@ -18,7 +18,6 @@
   align-items: center;
 }
 
-
 /* ================================
    2. Navigation Links
 ================================ */
@@ -36,7 +35,6 @@
   background-color: var(--accent);
 }
 
-
 /* ================================
    3. Icons
 ================================ */
@@ -44,7 +42,6 @@
 .navigation-bar svg {
   fill: var(--text);
 }
-
 
 /* ================================
    4. Sidebar Controls
@@ -59,13 +56,11 @@
   display: none;
 }
 
-
 /* ================================
    5. Responsive Styles
 ================================ */
 
 @media (max-width: 580px) {
-
   /* Sidebar Layout */
   .links-container {
     flex-direction: column;
@@ -115,4 +110,105 @@
     right: 0;
     z-index: 9;
   }
+}
+
+/* Mobile bottom navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  display: flex;
+  z-index: 100;
+}
+
+.nav-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--text-muted);
+  position: relative;
+  padding: 6px 0 4px;
+  outline: none;
+  transition: color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-btn:hover {
+  color: #aaa;
+}
+
+.nav-btn.active {
+  color: var(--text-active);
+}
+
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 0;
+  background: var(--red);
+  border-radius: 0 0 2px 2px;
+  transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-btn.active::before {
+  width: 40px;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn.active .nav-icon {
+  transform: scale(1.08);
+}
+
+.nav-label {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  transition: font-weight 0.1s;
+}
+
+.nav-btn.active .nav-label {
+  font-weight: 600;
+}
+
+.avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6441a5, #e91e8c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.3px;
+  transition: transform 0.15s ease;
+}
+
+.nav-btn.active .avatar {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 2px var(--red);
 }

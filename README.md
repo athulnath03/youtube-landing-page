@@ -29,15 +29,19 @@ https://athulnath03.github.io/youtube-landing-page/
 youtube-landing-page/
 │
 ├── index.html              # Main entry point (GitHub Pages deployment)
+├── script.js               # JavaScript for theme switching and UI interactions
 │
-├── assets/                 # Images, thumbnails, profile pictures
+├── assets/
+│   ├── css/
+│   │   ├── general.css     # Global variables & theme configuration
+│   │   ├── header.css      # Header and search bar styling
+│   │   ├── navbar.css      # Navigation bar styling
+│   │   └── sidebar.css     # Sidebar layout and toggle behavior
+│   ├── Icons/              # SVG icons and related assets
+│   ├── profile pictures/   # User profile images
+│   └── thumbnails/         # Video thumbnail images
 │
-├── styles/
-│   ├── general.css         # Global variables & theme configuration
-│   ├── header.css          # Header and search bar styling
-│   └── sidebar.css         # Sidebar layout and toggle behavior
-│
-└── script.js               # Dark mode toggle logic
+└── README.md               # Project documentation
 ```
 ---
 

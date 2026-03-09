@@ -22,6 +22,11 @@
   --menu-bg: #f2f2f2;
   --accent: #ff0000;
   --nav-bg: #0f1016;
+
+  /* Additional variables */
+  --text-muted: var(--muted);
+  --text-active: var(--accent);
+  --red: var(--accent);
 }
 
 [data-theme="dark"] {
@@ -32,20 +37,24 @@
 
   --header-bg: #0f0f10;
   --surface: #141414;
-  --border: rgba(255,255,255,0.06);
-  --hover: rgba(255,255,255,0.04);
+  --border: rgba(255, 255, 255, 0.06);
+  --hover: rgba(255, 255, 255, 0.04);
 
-  --search-bg: rgba(255,255,255,0.03);
-  --search-hover: rgba(255,255,255,0.06);
+  --search-bg: rgba(255, 255, 255, 0.03);
+  --search-hover: rgba(255, 255, 255, 0.06);
 
-  --chip-bg: rgba(255,255,255,0.08);
+  --chip-bg: rgba(255, 255, 255, 0.08);
   --chip-text: #ffffff;
 
   --menu-bg: #202124;
   --accent: #ff0000;
   --nav-bg: #0f0f10;
-}
 
+  /* Additional variables */
+  --text-muted: var(--muted);
+  --text-active: var(--accent);
+  --red: var(--accent);
+}
 
 /* =========================================
    2. Base / Reset
@@ -68,7 +77,6 @@ p {
   font-family: roboto, arial;
 }
 
-
 /* =========================================
    3. Layout (Page Structure)
 ========================================= */
@@ -79,7 +87,6 @@ p {
   column-gap: 8px;
   row-gap: 35px;
 }
-
 
 /* =========================================
    4. Video Card Component
@@ -114,7 +121,6 @@ p {
   border-radius: 2px;
 }
 
-
 /* --- Video Info Section --- */
 
 .video-info-grid {
@@ -144,7 +150,6 @@ p {
   margin-top: 4px;
 }
 
-
 /* =========================================
    5. Responsive Grid
 ========================================= */
@@ -164,5 +169,41 @@ p {
 @media (max-width: 600px) {
   .video-grid {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Mobile navigation height */
+:root {
+  --nav-h: 60px;
+}
+
+/* Logo text color for light mode */
+.yt-text-path {
+  fill: #282828;
+}
+
+/* Logo text color for dark mode */
+:root[data-theme="dark"] .yt-text-path {
+  fill: #ffffff;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .menu-btn,
+  .sidebar,
+  #sidebar,
+  .header-desktop {
+    display: none;
+  }
+
+  body {
+    padding-left: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-mobile,
+  .nav-mobile {
+    display: none;
   }
 }
