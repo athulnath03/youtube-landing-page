@@ -439,5 +439,6 @@
 .header-mobile-right {
   display: flex;
   justify-self: end;
+  align-items: center;
   gap: 25px;
 }
