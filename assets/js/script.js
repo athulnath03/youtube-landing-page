@@ -1,3 +1,43 @@
+const API_KEY = "AIzaSyBY3Va8yWF3fPyDRpbQaESbU-uIW44YOxI"; 
+let nextPageToken = "";
+const API_URL = `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=10&regionCode=IN&key=${API_KEY}`;
+
+async function loadVideos() {
+  let url = API_URL;
+  if (nextPageToken) {
+    url += `&pageToken=${nextPageToken}`;
+  }
+
+  const response = await fetch(url);
+  const data = await response.json();
+  nextPageToken = data.nextPageToken;
+
+  const container = document.getElementById("video-container");
+
+  data.items.forEach(video => {
+    const { title, description, thumbnails, channelTitle } = video.snippet;
+    const card = document.createElement("div");
+    card.className = "video-card";
+    card.innerHTML = `
+      <img src="${thumbnails.medium.url}" alt="${title}">
+      <h3>${title}</h3>
+      <p>${channelTitle}</p>
+      <p>${description}</p>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// Initial load
+loadVideos();
+
+// Infinite scroll
+window.addEventListener("scroll", () => {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+    loadVideos();
+  }
+});
+
 (function () {
   const toggles = document.querySelectorAll(".theme-toggle");
   const root = document.documentElement;
