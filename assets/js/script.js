@@ -22,7 +22,6 @@ async function loadVideos() {
       <img src="${thumbnails.medium.url}" alt="${title}">
       <h3>${title}</h3>
       <p>${channelTitle}</p>
-      <p>${description}</p>
     `;
     container.appendChild(card);
   });
@@ -37,6 +36,8 @@ window.addEventListener("scroll", () => {
     loadVideos();
   }
 });
+
+
 
 (function () {
   const toggles = document.querySelectorAll(".theme-toggle");
